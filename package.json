@@ -1,0 +1,35 @@
+{
+  "name": "electron-app",
+  "private": true,
+  "version": "0.0.0",
+  "main": "./electron/main/main.js",
+ "scripts": {
+    "start": "concurrently \"npm run dev\" \"npm run build:electron\" \"npm run start:electron\"",
+    "dev": "vite",
+    "build:electron": "cross-env tsc --watch src/main/main.ts src/preload/preload.ts --outDir electron --target ESNext --module CommonJS",
+    "start:electron": "cross-env electron ."
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^31.0.2",
+    "electron-reload": "^2.0.0-alpha.1",
+    "nodemon": "^3.1.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "ts-node": "^10.9.2",
+    "wait-on": "^7.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "@typescript-eslint/parser": "^7.13.1",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.1"
+  }
+}
